@@ -57,12 +57,10 @@
     />
     <div>
       <van-row>
-        <van-col :span="2"></van-col>
-        <van-col :span="5">学习能力测试</van-col>
-        <van-col :span="5">思维能力测试</van-col>
-        <van-col :span="5">da能力测试</van-col>
-        <van-col :span="5">能力测试</van-col>
-        <van-col :span="2"></van-col>
+        <van-col :span="6">学习能力测试</van-col>
+        <van-col :span="6">思维能力测试</van-col>
+        <van-col :span="6">da能力测试</van-col>
+        <van-col :span="6">能力测试</van-col>
       </van-row>
     </div>
     <div style="margin: 16px;">
