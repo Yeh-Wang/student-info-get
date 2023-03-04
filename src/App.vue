@@ -1,10 +1,29 @@
 <template>
   <nav>
+    <van-button type="primary">主要按钮</van-button>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
 </template>
+
+<script lang="ts"  setup>
+// Toast
+import { showToast } from 'vant';
+import 'vant/es/toast/style';
+
+// Dialog
+import { showDialog } from 'vant';
+import 'vant/es/dialog/style';
+
+// Notify
+import { showNotify } from 'vant';
+import 'vant/es/notify/style';
+
+// ImagePreview
+import { showImagePreview } from 'vant';
+import 'vant/es/image-preview/style';
+</script>
 
 <style lang="scss">
 #app {
