@@ -1,28 +1,20 @@
 <template>
   <nav>
-    <van-button type="primary">主要按钮</van-button>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">信息填写</router-link> |
+    <router-link to="/about">能力测试</router-link>
   </nav>
   <router-view/>
 </template>
 
 <script lang="ts"  setup>
-// Toast
-import { showToast } from 'vant';
-import 'vant/es/toast/style';
+import {onMounted} from "vue";
+import request from "@/request/request";
 
-// Dialog
-import { showDialog } from 'vant';
-import 'vant/es/dialog/style';
-
-// Notify
-import { showNotify } from 'vant';
-import 'vant/es/notify/style';
-
-// ImagePreview
-import { showImagePreview } from 'vant';
-import 'vant/es/image-preview/style';
+onMounted(()=>{
+  request.get("/question-source-entity/getAllQuestion").then(res=>{
+    console.log(res)
+  })
+})
 </script>
 
 <style lang="scss">
