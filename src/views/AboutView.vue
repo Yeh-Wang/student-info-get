@@ -1,8 +1,5 @@
 <template>
-  <p>sdadad</p>
-  <div v-for="item in questionInfo">
-    <van-button>{{item.content}}</van-button>
-  </div>
+
 </template>
 
 <script lang="ts" setup>
