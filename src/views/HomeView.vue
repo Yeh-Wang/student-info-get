@@ -34,6 +34,7 @@
     <van-field
         v-model="result_1"
         is-link
+
         readonly
         name="area"
         label="家庭住址"
@@ -43,6 +44,7 @@
     <van-popup :show="showArea" position="bottom" >
       <van-area
           :area-list="areaList"
+          columns-num="3"
           @confirm="onConfirm_1"
           @cancel="showArea = false"
       />
