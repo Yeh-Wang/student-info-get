@@ -1,17 +1,5 @@
 <template>
-  <div v-for="item in questionInfo">
-    <van-space direction="vertical">
-    <van-row>
-      <van-col span="24">{{item.content}}</van-col>
-    </van-row>
-    <van-radio-group icon-size="small" v-model="item.answer" direction="horizontal">
-      <van-radio name="A">{{item.optionA}}</van-radio>
-      <van-radio name="B">{{item.optionA}}</van-radio>
-      <van-radio name="C">{{item.optionA}}</van-radio>
-      <van-radio name="D">{{item.optionA}}</van-radio>
-    </van-radio-group>
-    </van-space>
-  </div>
+
 </template>
 
 <script lang="ts" setup>

@@ -5,7 +5,6 @@
   <div>
   <van-action-bar>
     <van-action-bar-button type="primary" text="填写信息" @click="onClickFill" />
-    <van-action-bar-button type="primary" text="能力测试" @click="onClickTest" />
     <van-action-bar-button type="primary" text="个人信息" @click="onClickPerson" />
   </van-action-bar>
   </div>
@@ -38,7 +37,7 @@ const onClickPerson = () =>{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-
+  font-size: 16px;
   color: #2c3e50;
 }
 
