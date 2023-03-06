@@ -75,10 +75,10 @@
     </div>
   </van-form>
 
-  <el-dialog v-model="showAbility" width="90%" title="能力测试" @click="confirm(str)">
+  <el-dialog v-model="showAbility" width="90%" title="能力测试">
     <div v-for="(item, i) in questionInfo" :key="i" class="learnShow">
       <div class="van-hairline--top"></div>
-      <div class="question"><span style="color: red">*</span>{{ ++i }}.{{ item.content }}</div>
+      <div class="question" style="text-align: left"><span style="color: red;">*</span>{{ ++i }}.{{ item.content }}</div>
       <br>
       <van-radio-group v-model="item.answer" icon-size="small">
 <!--        <van-space wrap>-->
@@ -95,6 +95,7 @@
       <div class="van-hairline--bottom"></div>
       <!--    <van-button @click="showAnswer(item)">Show Answer</van-button>-->
     </div>
+    <van-button type="primary" block @click="confirm(str)">提交</van-button>
   </el-dialog>
 
 </template>
@@ -237,6 +238,7 @@ const confirm = (str:string)=>{
     }
     form.learningAbility=score.toString()
     oneBut.value=true
+
   }else if(str==="2"){
     let score = 0;
     for(let i=0;i<questionInfo.length;i++){
@@ -283,6 +285,7 @@ const confirm = (str:string)=>{
     form.executeAbility=score.toString()
     fourBut.value=true
   }
+  showAbility.value=false
 }
 
 onMounted(()=>{
