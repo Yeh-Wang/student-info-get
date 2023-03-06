@@ -101,6 +101,7 @@ import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import { areaList } from '@vant/area-data';
 import router from "@/router";
+import {showDialog} from "vant";
 interface stuInfo {
   stuId: string,
   stuNumber: string,
@@ -153,7 +154,12 @@ const onConfirm_1 = ({ selectedOptions }) => {
 
 const onSubmit = () =>{
   request.post("/student-info-entity/insertStudentInfo",form).then(res =>{
-    console.log(res.data)
+    showDialog({
+      title: '提示',
+      message: '提交成功',
+    }).then(() => {
+      // on close
+    });
   })
 }
 //能力测试
