@@ -6,9 +6,10 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   devServer:{
-    host:'128.0.0.1',
+    host:'0.0.0.0',
+    port:8080,
     client:{
-      webSocketURL:'ws://10.161.34.135:8080/ws',
+      webSocketURL:'ws://0.0.0.0:8080/ws',
     },
     headers:{
       'Access-Control-Allow-Origin':'*',
