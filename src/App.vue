@@ -57,7 +57,7 @@
     />
     <div>
       <van-row>
-        <van-col :span="6">学习能力测试</van-col>
+        <van-col :span="6"><van-button icon="plus" @click="getLearnAbility"/> </van-col>
         <van-col :span="6">思维能力测试</van-col>
         <van-col :span="6">da能力测试</van-col>
         <van-col :span="6">能力测试</van-col>
@@ -130,10 +130,27 @@ const onSubmit = () =>{
   // })
 }
 
+interface question{
+  id:string,
+  content:string,
+  optionA:string,
+  optionB:string,
+  optionC:string,
+  optionD:string,
+  questionType:string,
+  scoreA:number,
+  scoreB:number,
+  scoreC:number,
+  scoreD:number,
+  answer:string,
+}
+
+const questionInfo:question[] = reactive([])
+
+const getLearnAbility = () =>{
+}
+
 onMounted(() => {
-  request.get("/question-source-entity/getAllQuestion").then(res => {
-    console.log(res)
-  })
 })
 </script>
 
