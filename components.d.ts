@@ -16,9 +16,6 @@ declare module '@vue/runtime-core' {
     VanActionBarButton: typeof import('vant/es')['ActionBarButton']
     VanArea: typeof import('vant/es')['Area']
     VanButton: typeof import('vant/es')['Button']
-    VanCard: typeof import('vant/es')['Card']
-    VanCheckbox: typeof import('vant/es')['Checkbox']
-    VanCheckboxGroup: typeof import('vant/es')['CheckboxGroup']
     VanCol: typeof import('vant/es')['Col']
     VanDatePicker: typeof import('vant/es')['DatePicker']
     VanDialog: typeof import('vant/es')['Dialog']
@@ -30,6 +27,5 @@ declare module '@vue/runtime-core' {
     VanRadioGroup: typeof import('vant/es')['RadioGroup']
     VanRow: typeof import('vant/es')['Row']
     VanSpace: typeof import('vant/es')['Space']
-    VanTag: typeof import('vant/es')['Tag']
   }
 }

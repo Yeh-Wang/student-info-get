@@ -75,24 +75,27 @@
     </div>
   </van-form>
 
-  <van-dialog v-model:show="showAbility" title="能力测试" @click="confirm(str)">
+  <el-dialog v-model="showAbility" width="90%" title="能力测试" @click="confirm(str)">
     <div v-for="(item, i) in questionInfo" :key="i" class="learnShow">
       <div class="van-hairline--top"></div>
       <div class="question"><span style="color: red">*</span>{{ ++i }}.{{ item.content }}</div>
       <br>
       <van-radio-group v-model="item.answer" icon-size="small">
-        <van-space wrap>
+<!--        <van-space wrap>-->
           <van-radio name="A">A.{{ item.optionA }}</van-radio>
+        <br>
           <van-radio name="B">B.{{ item.optionB }}</van-radio>
+        <br>
           <van-radio name="C">C.{{ item.optionC }}</van-radio>
+        <br>
           <van-radio name="D">D.{{ item.optionD }}</van-radio>
-        </van-space>
+<!--        </van-space>-->
       </van-radio-group>
       <br>
       <div class="van-hairline--bottom"></div>
       <!--    <van-button @click="showAnswer(item)">Show Answer</van-button>-->
     </div>
-  </van-dialog>
+  </el-dialog>
 
 </template>
 
