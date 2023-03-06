@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script lang="ts" setup>
+import {onMounted, reactive} from "vue";
+import request from "@/request/request";
+interface question{
+  id:string,
+  content:string,
+  optionA:string,
+  optionB:string,
+  optionC:string,
+  optionD:string,
+  questionType:string,
+  scoreA:number,
+  scoreB:number,
+  scoreC:number,
+  scoreD:number,
+  answer:string,
+}
+const questionInfo:question[] = reactive([])
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+onMounted(()=>{
+})
 </script>

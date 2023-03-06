@@ -57,7 +57,9 @@
     />
     <div>
       <van-row>
-        <van-col :span="6"><van-button icon="plus" @click="getLearnAbility"/> </van-col>
+        <van-col :span="6">
+          <van-button icon="plus" @click="getLearnAbility"/>
+        </van-col>
         <van-col :span="6">思维能力测试</van-col>
         <van-col :span="6">da能力测试</van-col>
         <van-col :span="6">能力测试</van-col>
@@ -75,6 +77,7 @@
 import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import { areaList } from '@vant/area-data';
+import router from "@/router";
 interface stuInfo {
   stuId: string,
   stuNumber: string,
@@ -148,6 +151,7 @@ interface question{
 const questionInfo:question[] = reactive([])
 
 const getLearnAbility = () =>{
+  router.push("/about")
 }
 
 onMounted(() => {

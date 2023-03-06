@@ -8,7 +8,7 @@ module.exports = defineConfig({
   devServer:{
     host:'128.0.0.1',
     client:{
-      webSocketURL:'ws://10.60.152.238:8080/ws',
+      webSocketURL:'ws://10.161.34.135:8080/ws',
     },
     headers:{
       'Access-Control-Allow-Origin':'*',
