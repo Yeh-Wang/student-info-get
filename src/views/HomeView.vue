@@ -58,14 +58,14 @@
     <div>
       <van-row>
         <van-col :span="6">
-          <van-button plain size="small" type="primary" @click="getLearnAbility">学习能力</van-button>
+          <van-button plain :disabled="oneBut" size="small" type="primary" @click="getLearnAbility">学习能力</van-button>
         </van-col>
         <van-col :span="6">
-          <van-button plain size="small" type="primary" @click="getThinkingAbility">思维能力</van-button></van-col>
+          <van-button plain :disabled="twoBut" size="small" type="primary" @click="getThinkingAbility">思维能力</van-button></van-col>
         <van-col :span="6">
-          <van-button plain size="small" type="primary" @click="getExpressAbility">表达能力</van-button></van-col>
+          <van-button plain :disabled="threeBut" size="small" type="primary" @click="getExpressAbility">表达能力</van-button></van-col>
         <van-col :span="6">
-          <van-button plain size="small" type="primary" @click="getExecuteAbility">执行能力</van-button></van-col>
+          <van-button plain :disabled="fourBut" size="small" type="primary" @click="getExecuteAbility">执行能力</van-button></van-col>
       </van-row>
     </div>
     <div style="margin: 16px;">
@@ -75,7 +75,7 @@
     </div>
   </van-form>
 
-  <van-dialog v-model:show="showAbility" title="能力测试" @click="confirm(str)" show-cancel-button>
+  <van-dialog v-model:show="showAbility" title="能力测试" @click="confirm(str)">
     <div v-for="(item, i) in questionInfo" :key="i" class="learnShow">
       <div class="van-hairline--top"></div>
       <div class="question"><span style="color: red">*</span>{{ ++i }}.{{ item.content }}</div>
@@ -100,7 +100,6 @@
 import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import { areaList } from '@vant/area-data';
-import router from "@/router";
 import {showDialog} from "vant";
 interface stuInfo {
   stuId: string,
@@ -140,8 +139,7 @@ const result = ref('');
 const showPicker = ref(false);
 const onConfirm = ({ selectedValues }) => {
   result.value = selectedValues.join('');
-  result.value = result.value.slice(0,4)
-  form.age=now_date.getFullYear()- parseInt(result.value)
+  form.age=now_date.getFullYear()- parseInt(result.value.slice(0,4))
   showPicker.value = false;
 };
 const result_1 = ref('');
@@ -156,7 +154,7 @@ const onSubmit = () => {
   request.post("/student-info-entity/insertStudentInfo",form).then(res =>{
     showDialog({
       title: '提示',
-      message: '提交成功',
+      message: res.data.message,
     }).then(() => {
       // on close
     });
@@ -182,13 +180,17 @@ const questionInfo:question[] = reactive([])
 
 const str = ref("")
 //学习能力
+const oneBut = ref(false)
+const twoBut = ref(false)
+const threeBut = ref(false)
+const fourBut = ref(false)
 const showAbility = ref(false)
 const getLearnAbility = ()=>{
   str.value="1"
-  showAbility.value=true
   request.get("/question-source-entity/getQuestionByType/"+"学习能力").then(res =>{
     questionInfo.splice(0,questionInfo.length)
     questionInfo.push(...res.data.data)
+    showAbility.value=true
   })
 }
 const getThinkingAbility = ()=>{
@@ -201,18 +203,18 @@ const getThinkingAbility = ()=>{
 }
 const getExpressAbility = ()=>{
   str.value="3"
-  showAbility.value=true
   request.get("/question-source-entity/getQuestionByType/"+"表达能力").then(res =>{
     questionInfo.splice(0,questionInfo.length)
     questionInfo.push(...res.data.data)
+    showAbility.value=true
   })
 }
 const getExecuteAbility = ()=>{
   str.value="4"
-  showAbility.value=true
   request.get("/question-source-entity/getQuestionByType/"+"执行能力").then(res =>{
     questionInfo.splice(0,questionInfo.length)
     questionInfo.push(...res.data.data)
+    showAbility.value=true
   })
 }
 
@@ -231,6 +233,7 @@ const confirm = (str:string)=>{
       }
     }
     form.learningAbility=score.toString()
+    oneBut.value=true
   }else if(str==="2"){
     let score = 0;
     for(let i=0;i<questionInfo.length;i++){
@@ -245,6 +248,7 @@ const confirm = (str:string)=>{
       }
     }
     form.thinkingAbility=score.toString()
+    twoBut.value=true
   }else if(str==="3"){
     let score = 0;
     for(let i=0;i<questionInfo.length;i++){
@@ -259,6 +263,7 @@ const confirm = (str:string)=>{
       }
     }
     form.expressAbility=score.toString()
+    threeBut.value=true
   }else if(str==="4"){
     let score = 0;
     for(let i=0;i<questionInfo.length;i++){
@@ -273,9 +278,9 @@ const confirm = (str:string)=>{
       }
     }
     form.executeAbility=score.toString()
+    fourBut.value=true
   }
 }
-
 
 onMounted(()=>{
 })
