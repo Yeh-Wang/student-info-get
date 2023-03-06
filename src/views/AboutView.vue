@@ -9,7 +9,6 @@
 </template>
 
 <script lang="ts" setup>
-
 import {ref} from "vue";
 
 //学号

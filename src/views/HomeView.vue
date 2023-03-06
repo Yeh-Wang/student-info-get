@@ -104,7 +104,6 @@
 import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import { areaList } from '@vant/area-data';
-import {showDialog} from "vant";
 import {ElMessage} from "element-plus";
 interface stuInfo {
   stuId: string,
