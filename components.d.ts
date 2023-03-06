@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VanActionBar: typeof import('vant/es')['ActionBar']
+    VanActionBarButton: typeof import('vant/es')['ActionBarButton']
     VanArea: typeof import('vant/es')['Area']
     VanButton: typeof import('vant/es')['Button']
     VanCol: typeof import('vant/es')['Col']
@@ -23,5 +25,6 @@ declare module '@vue/runtime-core' {
     VanRadio: typeof import('vant/es')['Radio']
     VanRadioGroup: typeof import('vant/es')['RadioGroup']
     VanRow: typeof import('vant/es')['Row']
+    VanSpace: typeof import('vant/es')['Space']
   }
 }
