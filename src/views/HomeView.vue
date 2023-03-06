@@ -69,7 +69,7 @@
       </van-row>
     </div>
     <div style="margin: 16px;">
-      <van-button round block type="primary" native-type="submit">
+      <van-button round block type="primary" native-type="submit" :disabled="submitBut">
         提交
       </van-button>
     </div>
@@ -101,6 +101,7 @@ import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import { areaList } from '@vant/area-data';
 import {showDialog} from "vant";
+import {ElMessage} from "element-plus";
 interface stuInfo {
   stuId: string,
   stuNumber: string,
@@ -132,6 +133,8 @@ const form: stuInfo = reactive({
   executeAbility: ""
 })
 
+const submitBut = ref(false)
+
 const now_date = new Date()
 const minDate = ref(new Date(1990, 1, 1))
 const maxDate= ref(new Date(2025, 1, 1))
@@ -149,15 +152,10 @@ const onConfirm_1 = ({ selectedOptions }) => {
   result_1.value = selectedOptions.map((item) => item.text).join('/');
   form.address=result_1.value
 };
-
 const onSubmit = () => {
   request.post("/student-info-entity/insertStudentInfo",form).then(res =>{
-    showDialog({
-      title: '提示',
-      message: res.data.message,
-    }).then(() => {
-      // on close
-    });
+    ElMessage.success(res.data.message)
+    submitBut.value=true
   })
 }
 //能力测试
