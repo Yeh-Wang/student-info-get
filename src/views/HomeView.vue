@@ -152,7 +152,7 @@ const onConfirm_1 = ({ selectedOptions }) => {
   form.address=result_1.value
 };
 
-const onSubmit = () =>{
+const onSubmit = () => {
   request.post("/student-info-entity/insertStudentInfo",form).then(res =>{
     showDialog({
       title: '提示',
