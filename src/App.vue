@@ -18,14 +18,9 @@ const onClickFill = () =>{
     path:"/"
   })
 }
-const onClickTest = () =>{
-  router.push({
-    path:"/about"
-  })
-}
 const onClickPerson = () =>{
   router.push({
-    path:"/"
+    path:"/about"
   })
 }
 </script>
