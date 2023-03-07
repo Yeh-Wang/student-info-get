@@ -60,7 +60,7 @@
         <el-input v-model="modifyInfo.stuName" clearable/>
       </el-form-item>
       <el-form-item label="学号">
-        <el-input v-model="modifyInfo.stuNumber" disabled />
+        <el-input v-model="modifyInfo.stuNumber" disabled/>
       </el-form-item>
       <el-form-item label="年龄">
         <el-input v-model="modifyInfo.age" clearable/>
@@ -72,13 +72,13 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item label="电话">
-        <el-input v-model="modifyInfo.telephone" clearable maxlength="11" show-word-limit />
+        <el-input v-model="modifyInfo.telephone" clearable maxlength="11" show-word-limit/>
       </el-form-item>
       <el-form-item label="家庭住址">
         <el-input v-model="modifyInfo.address" clearable/>
       </el-form-item>
       <el-form-item label="QQ">
-        <el-input v-model="modifyInfo.qq" clearable maxlength="11" show-word-limit />
+        <el-input v-model="modifyInfo.qq" clearable maxlength="11" show-word-limit/>
       </el-form-item>
       <el-button @click="submit">提交</el-button>
     </el-form>
@@ -103,22 +103,6 @@ const modifyEnable = ref(true)
 const applyVisible = ref(false)
 //修改对话框可见性
 const modifyInfoVisible = ref(false)
-
-interface stuInfo {
-  stuId: string,
-  stuNumber: string,
-  stuName: string,
-  age: number,
-  sex: string,
-  telephone: string,
-  address: string,
-  qq: string,
-  permissions: number,
-  learningAbility: string,
-  expressAbility: string,
-  thinkingAbility: string,
-  executeAbility: string
-}
 
 const info = ref({
   stuId: "",
@@ -157,39 +141,39 @@ const modifyInfo2 = () => {
 }
 
 const submit = () => {
-  if (modifyInfo.value.stuName===''){
+  if (modifyInfo.value.stuName === '') {
     ElMessage({
-      showClose:true,
+      showClose: true,
       type: 'error',
-      message:'名字不能为空'
+      message: '名字不能为空'
     })
     return
   }
-  if (modifyInfo.value.address===''){
+  if (modifyInfo.value.address === '') {
     ElMessage({
-      showClose:true,
+      showClose: true,
       type: 'error',
-      message:'地址不能为空'
+      message: '地址不能为空'
     })
     return
   }
-  if (modifyInfo.value.telephone===''){
+  if (modifyInfo.value.telephone === '') {
     ElMessage({
-      showClose:true,
+      showClose: true,
       type: 'error',
-      message:'电话不能为空'
+      message: '电话不能为空'
     })
     return
   }
-  request.post("/student-info-entity/updateStudent",modifyInfo.value).then(res=>{
+  request.post("/student-info-entity/updateStudent", modifyInfo.value).then(res => {
     ElMessage({
-      showClose:true,
+      showClose: true,
       type: 'success',
-      message:res.data.message
+      message: res.data.message
     })
     request.get("/student-info-entity/findStudentByStuNumber/" + stuNum.value).then(res => {
       info.value = res.data.data
-      modifyInfoVisible.value=false
+      modifyInfoVisible.value = false
     })
   })
 }
@@ -206,14 +190,13 @@ const auditTableInfo = reactive({
 const findStudentInfo = () => {
   request.get("/student-info-entity/findStudentByStuNumber/" + stuNum.value).then(res => {
     console.log(res.data)
-    if (res.data.data==null){
+    if (res.data.data == null) {
       ElMessage({
-        type:'error',
-        message:'该学号学生未填写信息',
-        showClose:true,
+        type: 'error',
+        message: '该学号学生未填写信息',
+        showClose: true,
       })
-    }
-    else {
+    } else {
       info.value = res.data.data
       console.log(info.value)
       if (info.value.permissions == 1) {
