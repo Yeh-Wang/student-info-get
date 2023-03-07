@@ -3,8 +3,7 @@ import axios from 'axios';//原生的axios
 
 
 const request= axios.create({
-    // baseURL:'http://47.109.49.197:9090',
-    baseURL:'http://localhost:9090',
+    baseURL:'http://47.109.49.197:9090',
 })
 
 
