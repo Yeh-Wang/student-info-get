@@ -1,60 +1,23 @@
 <template>
-  {{questionTable.info}}
+ <el-button type="primary" @click="sentEmail">发送邮件</el-button>
 </template>
 
-<script lang="ts">
-import {defineComponent, reactive} from "vue";
-import request from "@/request/request";
+<script lang="ts" setup>
 
+const sentEmail = () =>{
+  Email.send({
+    Host: "smtp.163.com",  //邮箱地址
+    Username: "Yeh Wang",
+    Password: "NKPWNKROEOHMYXDB",//授权码
+    To: "1627082750@qq.com",//接收邮件的地址
+    From: "wyx1627082750@163.com",//发送邮箱的地址
+    Subject: "合规确认消息提醒",//邮件主题
+    Body: "xxxxxxxxxxxxxxx"  //邮件内容
+  }).then(
+      alert("sssss")//发送成功提示
+  )
+}
 
-export default defineComponent({
-  name: "TestView",
-  created() {
-    request.get("/question-source-entity/getAllQuestion").then(res => {
-      this.questionTable.info=res.data.data
-      console.log(res.data.data)
-      // console.log(questionTable.info)
-      // console.log(questionTable)
-      console.log(this.questionTable.info)
-    })
-  },
-  setup(){
-    interface question{
-      id:string,
-      content:string,
-      optionA:string,
-      optionB:string,
-      optionC:string,
-      optionD:string,
-      questionType:string,
-      scoreA:number,
-      scoreB:number,
-      scoreC:number,
-      scoreD:number,
-    }
-    // const questionTable:question[] = reactive([])
-    const questionTable = reactive({
-      info:[{
-        id:'',
-        content:'',
-        optionA:'',
-        optionB:'',
-        optionC:'',
-        optionD:'',
-        questionType:'',
-        scoreA:0,
-        scoreB:0,
-        scoreC:0,
-        scoreD:0,
-      }]
-    })
-
-    return{
-      questionTable,
-
-    }
-  }
-})
 </script>
 
 <style scoped>
