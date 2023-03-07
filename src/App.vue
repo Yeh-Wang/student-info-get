@@ -3,7 +3,7 @@
     <router-view />
   </div>
   <div>
-  <van-action-bar>
+  <van-action-bar v-if="!$route.meta.showNavMenu">
     <van-action-bar-button type="primary" text="填写信息" @click="onClickFill" />
     <van-action-bar-button type="primary" text="个人信息" @click="onClickPerson" />
   </van-action-bar>

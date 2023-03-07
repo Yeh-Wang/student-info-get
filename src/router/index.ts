@@ -17,11 +17,13 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path:'/test',
+    path:'/update',
     name:'test',
-    component:TestView
+    component:TestView,
+    meta: {
+      showNavMenu:true,
+    }
   },
-
 ]
 
 const router = createRouter({
