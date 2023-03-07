@@ -24,6 +24,14 @@ const routes: Array<RouteRecordRaw> = [
       showNavMenu:true,
     }
   },
+  {
+    path:'/404',
+    name:'404',
+    component: () => import('../views/404View.vue'),
+    meta: {
+      showNavMenu:true,
+    }
+  },
 ]
 
 const router = createRouter({

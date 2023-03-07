@@ -48,6 +48,7 @@
 import {onMounted, reactive, ref} from "vue";
 import request from "@/request/request";
 import {ElMessage} from "element-plus";
+import router from "@/router";
 
 //学号
 const stuNum = ref('')
@@ -117,9 +118,9 @@ const submit = () => {
       type: 'success',
       message: res.data.message
     })
-    request.get("/student-info-entity/findStudentByStuNumber/" + stuNum.value).then(res => {
-      info.value = res.data.data
-      modifyInfoVisible.value = false
+    modifyInfoVisible.value=false
+    router.push({
+      path:'/404'
     })
   })
 }
