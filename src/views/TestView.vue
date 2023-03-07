@@ -111,7 +111,7 @@ const submit = () => {
     })
     return
   }
-  request.post("/student-info-entity/updateStudent", modifyInfo.value).then(res => {
+  request.post("/student-info-entity/updateSelfInfo", modifyInfo.value).then(res => {
     ElMessage({
       showClose: true,
       type: 'success',
