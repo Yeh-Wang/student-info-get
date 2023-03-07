@@ -30,8 +30,8 @@
         {{ info.qq }}
       </van-collapse-item>
     </van-collapse>
-    <br>
-    <el-button :disabled="modifyEnable" @click="modifyInfo2">修改信息</el-button>
+<!--    <br>-->
+<!--    <el-button :disabled="modifyEnable" @click="modifyInfo2">修改信息</el-button>-->
     <br><br>
     <span style="font-size: small;color: red" @click="applyVisible=true">信息有误,需要修改?点击申请</span>
   </div>
@@ -44,6 +44,9 @@
     <el-form label-width="5rem">
       <el-form-item label="申请原因">
         <el-input type="textarea" v-model="auditTableInfo.reasonContent"/>
+      </el-form-item>
+      <el-form-item label="联系邮箱">
+        <el-input type="textarea" v-model="auditTableInfo.contact"/>
       </el-form-item>
       <el-button @click="makeSureApply">确认</el-button>
     </el-form>
@@ -183,6 +186,7 @@ const auditTableInfo = reactive({
   auditor: null,
   reasonContent: '',
   result: '',
+  contact:''
 })
 
 
