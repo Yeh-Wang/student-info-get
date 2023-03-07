@@ -136,6 +136,12 @@ const findStudentInfo = () => {
         message: '该学号学生未填写信息',
         showClose: true,
       })
+    }else if(res.data.data.permissions===0){
+      ElMessage({
+        type: 'error',
+        message: '无权限修改，如果已经申请请等待申请通过',
+        showClose: true,
+      })
     } else {
       modifyInfo.value = res.data.data
       console.log(modifyInfo.value)
