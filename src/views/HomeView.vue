@@ -130,7 +130,7 @@ const form: stuInfo = reactive({
   sex: "",
   telephone: "",
   address: "",
-  qq: " ",
+  qq: "",
   permissions: 0,
   learningAbility: "",
   expressAbility: "",
